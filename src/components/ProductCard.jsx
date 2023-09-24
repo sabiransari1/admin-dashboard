@@ -2,6 +2,7 @@ import React from "react";
 import { Tbody, Tr, Td } from "@chakra-ui/react";
 
 export const ProductCard = ({
+  id,
   img,
   name,
   description,

@@ -13,9 +13,7 @@ const URL = "https://admin-dashboard-server-sabiransari1.onrender.com";
 export const getProducts = (paramObj) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCTS_REQUEST });
-    console.log(paramObj);
     const products = await axios.get(`${URL}/products`, paramObj);
-    console.log(products);
     dispatch({ type: GET_PRODUCTS, payload: products });
   } catch (error) {
     dispatch({ type: PRODUCTS_FAILURE, payload: error.message });

@@ -29,28 +29,27 @@ export const Home = () => {
     };
   });
 
-  // let paramObj = {
-  //   params: {
-  //     _limit: limit,
-  //     _page: page,
-  //     q: query && query,
-  //     gender: gender,
-  //     category: category,
-  //     _sort: order && "price",
-  //     _order: order,
-  //   },
-  // };
-
   let paramObj = {
     params: {
       _limit: limit,
       _page: page,
+      q: query && query,
+      gender: gender || undefined,
+      category: category || undefined,
+      _sort: order && "price",
+      _order: order,
     },
   };
 
   useEffect(() => {
     dispatch(getProducts(paramObj));
   }, [page, query, gender, category, order]);
+
+  useEffect(() => {
+    if (products.length === 0 && page > 1) {
+      setPage(1);
+    }
+  }, [products]);
 
   return (
     <Box>

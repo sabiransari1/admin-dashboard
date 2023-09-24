@@ -11,6 +11,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   errMessage: "",
+  dbLength: null,
   products: new Array(),
 };
 
@@ -25,7 +26,12 @@ export const reducer = (state = initialState, { type, payload }) => {
     }
 
     case GET_PRODUCTS: {
-      return { ...state, isLoading: false, products: payload };
+      return {
+        ...state,
+        isLoading: false,
+        products: payload.data,
+        dbLength: payload.headers.get("x-total-count"),
+      };
     }
 
     case ADD_PRODUCT: {

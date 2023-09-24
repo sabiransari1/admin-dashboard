@@ -3,14 +3,7 @@ import { Box, Input } from "@chakra-ui/react";
 import { addProduct } from "../redux/products/action";
 import { useDispatch } from "react-redux";
 
-// img,
-// name,
-// description,
-// gender,
-// category,
-// price,
-
-export const AddPage = () => {
+export const AddProduct = () => {
   const [img, setImg] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");

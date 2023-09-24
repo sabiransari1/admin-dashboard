@@ -3,6 +3,7 @@ import { ProductList } from "../components/ProductList";
 import { getProducts } from "../redux/products/action";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   Box,
   Heading,
@@ -14,25 +15,41 @@ import {
 } from "@chakra-ui/react";
 
 export const Home = () => {
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [gender, setGender] = useState("");
   const [category, setCategory] = useState("");
   const [order, setOrder] = useState("");
   const dispatch = useDispatch();
+  const { products, dbLength } = useSelector((store) => {
+    return {
+      products: store.productsReducer.products,
+      dbLength: store.productsReducer.dbLength,
+    };
+  });
 
+  // let paramObj = {
+  //   params: {
+  //     _limit: limit,
+  //     _page: page,
+  //     q: query,
+  //     gender: gender,
+  //     category: category,
+  //     _sort: order && "price",
+  //     _order: order,
+  //   },
+  // };
   let paramObj = {
     params: {
-      q: query && query,
-      gender: gender,
-      category: category,
-      _sort: order && "price",
-      _order: order,
+      _limit: limit,
+      _page: page,
     },
   };
 
   useEffect(() => {
     dispatch(getProducts(paramObj));
-  }, [query, gender, category, order]);
+  }, [page, query, gender, category, order]);
 
   return (
     <Box>
@@ -59,6 +76,7 @@ export const Home = () => {
           <Button size={"lg"}>Add Product</Button>
         </Link>
       </Center>
+
       {/* 4 */}
       <Flex mt={"20px"} gap={"5px"} p={"10px"}>
         <Box w={"100%"}>
@@ -83,16 +101,16 @@ export const Home = () => {
         >
           <option value={""}>Filter By Category</option>
           {/* male */}
-          <option value={"suits"}>Suits</option>
-          <option value={"shirts"}>Shirts</option>
+          <option value={"suit"}>Suits</option>
+          <option value={"shirt"}>Shirts</option>
           <option value={"jeans"}>Jeans</option>
-          <option value={"trousers"}>Trousers</option>
+          <option value={"trouser"}>Trousers</option>
 
           {/* female */}
           <option value={"kurti"}>Kurti</option>
           <option value={"saree"}>Saree</option>
-          <option value={"jackets"}>Jackets</option>
-          <option value={"lehenga"}>Lehenga</option>
+          <option value={"jacket"}>Jacket</option>
+          <option value={"modren"}>Modren</option>
         </Select>
 
         <Select onChange={(e) => setOrder(e.target.value)} cursor={"pointer"}>
@@ -104,6 +122,28 @@ export const Home = () => {
 
       {/* 5 */}
       <ProductList />
+
+      {/* 6 */}
+
+      {products.length === 0 || (
+        <Flex justify={"space-evenly"} p={"5px"} mt={"10px"}>
+          <Button
+            onClick={() => setPage((prev) => prev - 1)}
+            isDisabled={page === 1}
+          >
+            Previos
+          </Button>
+          <Center>
+            <Heading>{page}</Heading>
+          </Center>
+          <Button
+            onClick={() => setPage((prev) => prev + 1)}
+            isDisabled={page === Math.ceil(dbLength / limit)}
+          >
+            Next
+          </Button>
+        </Flex>
+      )}
     </Box>
   );
 };

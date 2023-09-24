@@ -1,5 +1,5 @@
 import React from "react";
-import { Tr, Td } from "@chakra-ui/react";
+import { Tbody, Tr, Td } from "@chakra-ui/react";
 
 export const ProductCard = ({
   img,
@@ -10,13 +10,15 @@ export const ProductCard = ({
   price,
 }) => {
   return (
-    <Tr>
-      <Td>{img}</Td>
-      <Td>{name}</Td>
-      <Td>{description}</Td>
-      <Td>{gender}</Td>
-      <Td>{category}</Td>
-      <Td>₹{price}</Td>
-    </Tr>
+    <Tbody>
+      <Tr>
+        <Td>{img}</Td>
+        <Td>{name}</Td>
+        <Td>{description}</Td>
+        <Td>{gender}</Td>
+        <Td>{category}</Td>
+        <Td>₹{price}</Td>
+      </Tr>
+    </Tbody>
   );
 };

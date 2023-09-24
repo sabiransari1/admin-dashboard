@@ -33,13 +33,14 @@ export const Home = () => {
   //   params: {
   //     _limit: limit,
   //     _page: page,
-  //     q: query,
+  //     q: query && query,
   //     gender: gender,
   //     category: category,
   //     _sort: order && "price",
   //     _order: order,
   //   },
   // };
+
   let paramObj = {
     params: {
       _limit: limit,
@@ -72,9 +73,9 @@ export const Home = () => {
 
       {/* 3 */}
       <Center>
-        <Link to={"/addproduct"}>
-          <Button size={"lg"}>Add Product</Button>
-        </Link>
+        <Button size={"lg"} border={"1px"} p={"10px"}>
+          <Link to={"/addproduct"}>Add Product</Link>
+        </Button>
       </Center>
 
       {/* 4 */}
@@ -110,7 +111,7 @@ export const Home = () => {
           <option value={"kurti"}>Kurti</option>
           <option value={"saree"}>Saree</option>
           <option value={"jacket"}>Jacket</option>
-          <option value={"modren"}>Modren</option>
+          <option value={"western"}>Western</option>
         </Select>
 
         <Select onChange={(e) => setOrder(e.target.value)} cursor={"pointer"}>

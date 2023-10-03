@@ -39,22 +39,26 @@ export const ProductList = () => {
       )}
 
       {/* products */}
-      <TableContainer>
-        <Table>
-          <Thead>
-            <Tr>
-              <Th>Image</Th>
-              <Th>Name</Th>
-              <Th>Description</Th>
-              <Th>Gender</Th>
-              <Th>Category</Th>
-              <Th>Price</Th>
-            </Tr>
-          </Thead>
-          {products.length > 0 &&
-            products?.map((item) => <ProductCard key={item.id} {...item} />)}
-        </Table>
-      </TableContainer>
+      {products.length > 0 && (
+        <TableContainer>
+          <Table>
+            <Thead>
+              <Tr>
+                <Th>Image</Th>
+                <Th>Name</Th>
+                <Th>Description</Th>
+                <Th>Gender</Th>
+                <Th>Category</Th>
+                <Th>Price</Th>
+                <Th>Edit</Th>
+                <Th>Delete</Th>
+              </Tr>
+            </Thead>
+            {products.length > 0 &&
+              products?.map((item) => <ProductCard key={item.id} {...item} />)}
+          </Table>
+        </TableContainer>
+      )}
     </Box>
   );
 };

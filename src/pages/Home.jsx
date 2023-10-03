@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { ProductList } from "../components/ProductList";
 import { getProducts } from "../redux/products/action";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   Box,
@@ -13,6 +12,7 @@ import {
   Input,
   Select,
 } from "@chakra-ui/react";
+import { Navbar } from "../components/Navbar";
 
 export const Home = () => {
   const [limit, setLimit] = useState(10);
@@ -54,30 +54,18 @@ export const Home = () => {
   return (
     <Box>
       {/* 1 */}
-      <Box p={"5px"} mt={"20px"}>
+      <Navbar />
+
+      {/* 2 */}
+      <Box mt={"20px"}>
         <Center>
-          <Heading>ADMIN DASHBOARD</Heading>
+          <Heading bgGradient="linear(to-r, #a0caba,  #567eb9)" bgClip="text">
+            ADMIN DASHBOARD
+          </Heading>
         </Center>
       </Box>
 
-      {/* 2 */}
-      <Flex w={"100%"} justify={"space-evenly"} mt={"20px"}>
-        <Button border={"1px"} p={"10px"} w={"30%"}>
-          DASHBOARD
-        </Button>
-        <Button border={"1px"} p={"10px"} w={"30%"}>
-          STATS
-        </Button>
-      </Flex>
-
       {/* 3 */}
-      <Center>
-        <Button size={"lg"} border={"1px"} p={"10px"}>
-          <Link to={"/addproduct"}>Add Product</Link>
-        </Button>
-      </Center>
-
-      {/* 4 */}
       <Flex mt={"20px"} gap={"5px"} p={"10px"}>
         <Box w={"100%"}>
           <Input
@@ -120,11 +108,10 @@ export const Home = () => {
         </Select>
       </Flex>
 
-      {/* 5 */}
+      {/* 4 */}
       <ProductList />
 
-      {/* 6 */}
-
+      {/* 5 */}
       {products.length === 0 || (
         <Flex justify={"space-evenly"} p={"5px"} mt={"10px"}>
           <Button

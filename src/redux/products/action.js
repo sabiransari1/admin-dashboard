@@ -5,10 +5,11 @@ import {
   GET_PRODUCTS,
   PRODUCTS_FAILURE,
   PRODUCTS_REQUEST,
+  RESET_PRODUCT_INITIALSTATE,
 } from "../actionTypes";
 import axios from "axios";
 
-const URL = "https://admin-dashboard-server-sabiransari1.onrender.com";
+const URL = "https://admin-dashboard-json-server-sabiransari1.onrender.com";
 
 export const getProducts = (paramObj) => async (dispatch) => {
   try {
@@ -29,6 +30,7 @@ export const addProduct = (product) => async (dispatch) => {
     dispatch({ type: PRODUCTS_FAILURE, payload: error.message });
   }
 };
+
 export const editProduct = (id, editData) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCTS_REQUEST });
@@ -38,6 +40,7 @@ export const editProduct = (id, editData) => async (dispatch) => {
     dispatch({ type: PRODUCTS_FAILURE, payload: error.message });
   }
 };
+
 export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCTS_REQUEST });
@@ -46,4 +49,10 @@ export const deleteProduct = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({ type: PRODUCTS_FAILURE, payload: error.message });
   }
+};
+
+export const resetProductInitialstate = (dispatch) => {
+  try {
+    dispatch({ type: RESET_PRODUCT_INITIALSTATE });
+  } catch (error) {}
 };

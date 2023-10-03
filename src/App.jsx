@@ -5,7 +5,7 @@ import { AllRoutes } from "./components/AllRoutes";
 
 function App() {
   return (
-    <Box p={"10px"}>
+    <Box>
       <AllRoutes />
     </Box>
   );

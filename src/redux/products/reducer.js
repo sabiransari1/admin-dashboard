@@ -5,6 +5,7 @@ import {
   GET_PRODUCTS,
   PRODUCTS_FAILURE,
   PRODUCTS_REQUEST,
+  RESET_PRODUCT_INITIALSTATE,
 } from "../actionTypes";
 
 const initialState = {
@@ -13,6 +14,9 @@ const initialState = {
   errMessage: "",
   dbLength: null,
   products: new Array(),
+  isAdd: false,
+  isEdit: false,
+  isDelete: false,
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -35,15 +39,27 @@ export const reducer = (state = initialState, { type, payload }) => {
     }
 
     case ADD_PRODUCT: {
-      return { ...state, isLoading: false };
+      return { ...state, isLoading: false, isAdd: true };
     }
 
     case EDIT_PRODUCT: {
-      return { ...state, isLoading: false };
+      return { ...state, isLoading: false, isEdit: true };
     }
 
     case DELETE_PRODUCT: {
-      return { ...state, isLoading: false };
+      return { ...state, isLoading: false, isDelete: true };
+    }
+
+    case RESET_PRODUCT_INITIALSTATE: {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        errMessage: "",
+        isAdd: false,
+        isEdit: false,
+        isDelete: false,
+      };
     }
 
     default: {

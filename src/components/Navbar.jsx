@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
@@ -15,17 +15,17 @@ export const Navbar = () => {
       zIndex={"1"}
     >
       {/* 1 */}
-      <Button p={"10px"}>
+      <Button p={"10px"} w={"20%"}>
         <Link to={"/"}>DASHBOARD</Link>
       </Button>
 
       {/* 2 */}
-      <Button p={"10px"}>
+      <Button p={"10px"} w={"20%"}>
         <Link to={"/stats"}>STATS</Link>
       </Button>
 
       {/* 3 */}
-      <Button p={"10px"}>
+      <Button p={"10px"} w={"20%"}>
         <Link to={"/addproduct"}>ADD PRODUCT</Link>
       </Button>
     </Flex>

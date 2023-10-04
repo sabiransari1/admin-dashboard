@@ -55,82 +55,88 @@ export const Home = () => {
     <Box>
       {/* 1 */}
       <Navbar />
-
-      {/* 2 */}
-      <Box mt={"20px"}>
-        <Center>
-          <Heading bgGradient="linear(to-r, #a0caba,  #567eb9)" bgClip="text">
-            ADMIN DASHBOARD
-          </Heading>
-        </Center>
-      </Box>
-
-      {/* 3 */}
-      <Flex mt={"20px"} gap={"5px"} p={"10px"}>
-        <Box w={"100%"}>
-          <Input
-            type={"text"}
-            placeholder={"Search for product..."}
-            variant={"filled"}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+      <Box p={"0px 50px"}>
+        {/* 2 */}
+        <Box mt={"20px"}>
+          <Center>
+            <Heading bgGradient="linear(to-r, #a0caba,  #567eb9)" bgClip="text">
+              ADMIN DASHBOARD
+            </Heading>
+          </Center>
         </Box>
 
-        <Select onChange={(e) => setGender(e.target.value)} cursor={"pointer"}>
-          <option value={""}>Filter By Gender</option>
-          <option value={"male"}>Male</option>
-          <option value={"female"}>Female</option>
-        </Select>
+        {/* 3 */}
+        <Flex mt={"20px"} gap={"5px"} p={"10px"}>
+          <Box w={"100%"}>
+            <Input
+              type={"text"}
+              placeholder={"Search for product..."}
+              variant={"filled"}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </Box>
 
-        <Select
-          onChange={(e) => setCategory(e.target.value)}
-          cursor={"pointer"}
-        >
-          <option value={""}>Filter By Category</option>
-          {/* male */}
-          <option value={"suit"}>Suits</option>
-          <option value={"shirt"}>Shirts</option>
-          <option value={"jeans"}>Jeans</option>
-          <option value={"trouser"}>Trousers</option>
-
-          {/* female */}
-          <option value={"kurti"}>Kurti</option>
-          <option value={"saree"}>Saree</option>
-          <option value={"jacket"}>Jacket</option>
-          <option value={"western"}>Western</option>
-        </Select>
-
-        <Select onChange={(e) => setOrder(e.target.value)} cursor={"pointer"}>
-          <option value={""}>Sort By Price</option>
-          <option value={"asc"}>Ascending</option>
-          <option value={"desc"}>Descending</option>
-        </Select>
-      </Flex>
-
-      {/* 4 */}
-      <ProductList />
-
-      {/* 5 */}
-      {products.length === 0 || (
-        <Flex justify={"space-evenly"} p={"5px"} mt={"10px"}>
-          <Button
-            onClick={() => setPage((prev) => prev - 1)}
-            isDisabled={page === 1}
+          <Select
+            onChange={(e) => setGender(e.target.value)}
+            cursor={"pointer"}
           >
-            Previos
-          </Button>
-          <Center>
-            <Heading>{page}</Heading>
-          </Center>
-          <Button
-            onClick={() => setPage((prev) => prev + 1)}
-            isDisabled={page === Math.ceil(dbLength / limit)}
+            <option value={""}>Filter By Gender</option>
+            <option value={"male"}>Male</option>
+            <option value={"female"}>Female</option>
+          </Select>
+
+          <Select
+            onChange={(e) => setCategory(e.target.value)}
+            cursor={"pointer"}
           >
-            Next
-          </Button>
+            <option value={""}>Filter By Category</option>
+            {/* male */}
+            <option value={"suit"}>Suits</option>
+            <option value={"shirt"}>Shirts</option>
+            <option value={"jeans"}>Jeans</option>
+            <option value={"trouser"}>Trousers</option>
+
+            {/* female */}
+            <option value={"kurti"}>Kurti</option>
+            <option value={"saree"}>Saree</option>
+            <option value={"jacket"}>Jacket</option>
+            <option value={"western"}>Western</option>
+          </Select>
+
+          <Select onChange={(e) => setOrder(e.target.value)} cursor={"pointer"}>
+            <option value={""}>Sort By Price</option>
+            <option value={"asc"}>Ascending</option>
+            <option value={"desc"}>Descending</option>
+          </Select>
         </Flex>
-      )}
+
+        {/* 4 */}
+        <Box mt={"20px"}>
+          <ProductList />
+        </Box>
+
+        {/* 5 */}
+        {products.length === 0 || (
+          <Flex justify={"space-evenly"} p={"5px"} mt={"20px"}>
+            <Button
+              onClick={() => setPage((prev) => prev - 1)}
+              isDisabled={page === 1}
+            >
+              Previos
+            </Button>
+            <Center>
+              <Heading>{page}</Heading>
+            </Center>
+            <Button
+              onClick={() => setPage((prev) => prev + 1)}
+              isDisabled={page === Math.ceil(dbLength / limit)}
+            >
+              Next
+            </Button>
+          </Flex>
+        )}
+      </Box>
     </Box>
   );
 };

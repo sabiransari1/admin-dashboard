@@ -6,7 +6,7 @@ import {
   deleteProduct,
   resetProductInitialstate,
 } from "../redux/products/action";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export const ProductCard = ({
   id,
@@ -18,15 +18,7 @@ export const ProductCard = ({
   price,
 }) => {
   const dispatch = useDispatch();
-  const { isLoading, isError, errMessage, isDelete } = useSelector(
-    (store) => ({
-      isLoading: store.productsReducer.isLoading,
-      isError: store.productsReducer.isError,
-      errMessage: store.productsReducer.errMessage,
-      isDelete: store.productsReducer.isDelete,
-    }),
-    shallowEqual
-  );
+  const isDelete = useSelector((store) => store.productsReducer.isDelete);
   const toast = useToast();
 
   useEffect(() => {

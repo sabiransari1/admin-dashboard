@@ -56,9 +56,9 @@ export const Home = () => {
       {/* 1 */}
       <Navbar />
 
-      <Box p={"0px 50px 50px 50px"}>
+      <Box p={"50px"}>
         {/* 2 */}
-        <Box mt={"20px"}>
+        <Box>
           <Center>
             <Heading bgGradient="linear(to-r, #a0caba,  #567eb9)" bgClip="text">
               ADMIN DASHBOARD

@@ -1,9 +1,10 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Grid } from "@chakra-ui/react";
 import { Navbar } from "../components/Navbar";
 import { CategoryChart } from "../components/CategoryChart";
 import { GenderChart } from "../components/GenderChart";
 import axios from "axios";
+import { ProductDataCart } from "../components/ProductDataCart";
 
 export const Stats = () => {
   const [products, setProducts] = useState([]);
@@ -74,23 +75,37 @@ export const Stats = () => {
     setCategory(categoryX);
   }, [products]);
 
+  let categoryArr = Object.keys(category)?.map((key) => ({
+    [key]: category[key],
+  }));
+
   return (
     <Box>
       {/* 1 */}
       <Navbar />
 
       {/* 2 */}
-      <Flex p={"50px"} justify={"space-evenly"}>
+      <Box p={"50px"}>
         {/* 2.1 */}
-        <Box w={"50%"}>
-          <GenderChart gender={gender} />
-        </Box>
+        <Grid templateColumns={"repeat(4,1fr)"} gap={"1rem"}>
+          {categoryArr?.map((item, index) => (
+            <ProductDataCart key={index} item={item} />
+          ))}
+        </Grid>
 
         {/* 2.2 */}
-        <Box w={"50%"}>
-          <CategoryChart category={category} />
-        </Box>
-      </Flex>
+        <Flex justify={"space-evenly"} mt={"25px"}>
+          {/* 2.2.1 */}
+          <Box w={"50%"}>
+            <GenderChart gender={gender} />
+          </Box>
+
+          {/* 2.2.2 */}
+          <Box w={"50%"}>
+            <CategoryChart category={category} />
+          </Box>
+        </Flex>
+      </Box>
     </Box>
   );
 };

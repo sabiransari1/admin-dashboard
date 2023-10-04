@@ -124,7 +124,7 @@ export const Home = () => {
               onClick={() => setPage((prev) => prev - 1)}
               isDisabled={page === 1}
             >
-              Previos
+              Previous
             </Button>
             <Center>
               <Heading>{page}</Heading>

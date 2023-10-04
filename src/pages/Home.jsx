@@ -55,7 +55,8 @@ export const Home = () => {
     <Box>
       {/* 1 */}
       <Navbar />
-      <Box p={"0px 50px"}>
+
+      <Box p={"0px 50px 50px 50px"}>
         {/* 2 */}
         <Box mt={"20px"}>
           <Center>

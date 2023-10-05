@@ -1,6 +1,6 @@
-# Dashboard
+# Admin-Dashboard
 
-Dashboard is a web-based application that provides a user-friendly interface for performing CRUD (Create, Read, Update, Delete) operations on a database. It allows users to interact with their data easily and efficiently.
+Admin-Dashboard is a web-based application that provides a user-friendly interface for performing CRUD (Create, Read, Update, Delete) operations on a database. It allows users to interact with their data easily and efficiently with graphs too.
 
 ## Features
 _Create:_ Users can create new records in the database by filling out a form with relevant information.
@@ -17,17 +17,20 @@ CRUD-Dashboard was inspired by the need for a simple and intuitive tool to inter
 1. HTML5
 2. CSS3
 3. JavaScript
-4. JSON-Server (Mock-Server)
+4. JSON-Server
 5. React
 6. Redux
-7. Redux Thunk
-8. Chakra UI
+7. React-Redux
+8. Redux-Thunk
+9. Chakra UI
+10. Chart.js
+11. React-Chartjs-2
    
 ## Contributing
-We welcome and appreciate all contributions to the dashboard! Whether you want to report a bug, contribute code, provide suggestions, or improve the documentation, there are several ways you can get involved:
+Welcome and appreciate all contributions to the Admin-Dashboard! Whether you want to report a bug, contribute code, provide suggestions, or improve the documentation, there are several ways you can get involved:
 
 ## Instructions
-To contribute to the dashboard, follow these steps:
+To contribute to the Admin-Dashboard, follow these steps:
 
 - Fork this repository to your own GitHub account.
 - Clone the forked repository to your local machine.

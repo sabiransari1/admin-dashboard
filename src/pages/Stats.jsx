@@ -85,23 +85,63 @@ export const Stats = () => {
       <Navbar />
 
       {/* 2 */}
-      <Box p={"50px"}>
+      <Box p={"100px 50px 50px 50px"}>
         {/* 2.1 */}
-        <Grid templateColumns={"repeat(4,1fr)"} gap={"1rem"}>
+        <Grid
+          templateColumns={{
+            base: "repeat(1,1fr)",
+            sm: "repeat(2,1fr)",
+            md: "repeat(3,1fr)",
+            lg: "repeat(4,1fr)",
+            xl: "repeat(4,1fr)",
+            "2xl": "repeat(4,1fr)",
+          }}
+          gap={"1rem"}
+        >
           {categoryArr?.map((item, index) => (
             <ProductDataCart key={index} item={item} />
           ))}
         </Grid>
 
         {/* 2.2 */}
-        <Flex justify={"space-evenly"} mt={"25px"}>
+        <Flex
+          justify={"space-evenly"}
+          align={"center"}
+          mt={"25px"}
+          direction={{
+            base: "column",
+            sm: "column",
+            md: "row",
+            lg: "row",
+            xl: "row",
+            "2xl": "row",
+          }}
+        >
           {/* 2.2.1 */}
-          <Box w={"50%"}>
+          <Box
+            w={{
+              base: "100%",
+              sm: "70%",
+              md: "50%",
+              lg: "40%",
+              xl: "40%",
+              "2xl": "30%",
+            }}
+          >
             <GenderChart gender={gender} />
           </Box>
 
           {/* 2.2.2 */}
-          <Box w={"50%"}>
+          <Box
+            w={{
+              base: "100%",
+              sm: "70%",
+              md: "50%",
+              lg: "40%",
+              xl: "40%",
+              "2xl": "30%",
+            }}
+          >
             <CategoryChart category={category} />
           </Box>
         </Flex>

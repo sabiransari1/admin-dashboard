@@ -56,7 +56,7 @@ export const Home = () => {
       {/* 1 */}
       <Navbar />
 
-      <Box p={"50px"}>
+      <Box p={"100px 50px 50px 50px"}>
         {/* 2 */}
         <Box>
           <Center>
@@ -67,7 +67,19 @@ export const Home = () => {
         </Box>
 
         {/* 3 */}
-        <Flex mt={"20px"} gap={"5px"} p={"10px"}>
+        <Flex
+          mt={"20px"}
+          gap={"5px"}
+          p={"10px"}
+          direction={{
+            base: "column",
+            sm: "column",
+            md: "row",
+            lg: "row",
+            xl: "row",
+            "2xl": "row",
+          }}
+        >
           <Box w={"100%"}>
             <Input
               type={"text"}

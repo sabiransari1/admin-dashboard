@@ -85,7 +85,7 @@ export const AddProduct = () => {
     <Box>
       <Navbar />
       <Flex minW={"100wh"} minH={"100vh"} justify={"center"} align={"center"}>
-        <Flex w={"80%"} h={"80%"} justify={"center"} align={"center"}>
+        <Flex w={"80%"} h={"80%"} justify={"center"}>
           <Box
             w={{
               base: "100%",

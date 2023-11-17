@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Box } from "@chakra-ui/react";
 
@@ -8,7 +8,7 @@ export const GenderChart = ({ gender }) => {
 
   return (
     <Box>
-      <Pie
+      <Doughnut
         data={{
           labels: ["Male", "Female"],
           datasets: [
